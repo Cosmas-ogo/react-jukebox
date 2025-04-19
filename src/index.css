@@ -1,8 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@400;700&display=swap");
 
 body {
   margin: 0;
-  font-family: 'Zilla Slab', serif;
+  font-family: "Zilla Slab", serif;
   background-color: #fbeaff;
 }
 
@@ -19,7 +19,7 @@ button {
   padding: 0.4em 1em;
   border-radius: 10px;
   border: none;
-  font-family: 'Zilla Slab', serif;
+  font-family: "Zilla Slab", serif;
   font-size: 1rem;
 }
 
@@ -53,4 +53,30 @@ button:disabled {
 
 .song-current {
   box-shadow: 0px 0px 8px 2px #00c9a7;
+}
+
+.song-item:hover {
+  background-color: #f0d9ff;
+  cursor: pointer;
+}
+
+.play-count-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.preview-frame {
+  width: 100%;
+  height: 80px;
+  border: none;
+  margin-top: 1em;
+  border-radius: 10px;
+}
+
+button:disabled {
+  background-color: #ccc;
+  color: #666;
+  cursor: not-allowed;
+  opacity: 0.7;
 }

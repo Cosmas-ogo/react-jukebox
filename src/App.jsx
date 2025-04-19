@@ -1,58 +1,43 @@
+import { useState } from "react";
+import { SongsData, initialPlayCounts, playListTitle } from "./components/Data";
+
+import Heading from "./components/Heading";
+import Balance from "./components/Balance";
+import SongList from "./components/SongList";
+import PlayCounts from "./components/PlayCounts";
+
 const App = () => {
-  const playListTitle = "My cool playlist";
-  const songs = [
-    {
-      id: 1,
-      title: "Dreams",
-      artist: "Fleetwood Mac",
-      albumCover:
-        "https://upload.wikimedia.org/wikipedia/en/f/fb/FMacRumours.PNG",
-      previewURL:
-        "https://open.spotify.com/embed/track/0ofHAoxe9vBkTCp2UQIavz?utm_source=generator",
-    },
-    {
-      id: 2,
-      title: "Don't stop me now",
-      artist: "Queen",
-      albumCover:
-        "https://upload.wikimedia.org/wikipedia/en/9/97/Queen-dont-stop-me-now-1979-6-s.jpg",
-      previewURL:
-        "https://open.spotify.com/embed/track/5T8EDUDqKcs6OSOwEsfqG7?utm_source=generator",
-    },
-    {
-      id: 3,
-      title: "Enter Sandman",
-      artist: "Metallica",
-      albumCover:
-        "https://upload.wikimedia.org/wikipedia/en/2/2c/Metallica_-_Metallica_cover.jpg",
-      previewURL:
-        "https://open.spotify.com/embed/track/5sICkBXVmaCQk5aISGR3x1?utm_source=generator",
-    },
-    {
-      id: 4,
-      title: "Sledgehammer",
-      artist: "Peter Gabriel",
-      albumCover:
-        "https://upload.wikimedia.org/wikipedia/en/c/cf/Sledgehammer_Cover.jpg",
-      previewURL:
-        "https://open.spotify.com/embed/track/029NqmIySn1kOY305AAhxT?utm_source=generator",
-    },
-  ];
-  const playCounts = {
-    Dreams: 10,
-    "Enter Sandman": 5,
-    "Don't stop me now": 8,
-    Sledgehammer: 11,
-  };
-  const currentlyPlaying = 0;
+  // 🎵 Track which song is currently playing
+  const [currentlyPlaying, setCurrentlyPlaying] = useState(0);
+
+  // 💰 Starting balance (user can add £1 each time)
+  const [balance, setBalance] = useState(0);
+
+  // 📈 Track play counts (per song title)
+  const [playCounts, setPlayCounts] = useState(initialPlayCounts);
 
   return (
     <div className="App">
-      <h1>React Intro</h1>
+      <Heading title={playListTitle} />
+
+      {/* 💷 Insert money */}
+      <Balance balance={balance} setBalance={setBalance} />
+
+      {/* 🎧 Song list with preview & interactivity */}
+      <SongList
+        songs={SongsData}
+        currentlyPlaying={currentlyPlaying}
+        setCurrentlyPlaying={setCurrentlyPlaying}
+        playCounts={playCounts}
+        setPlayCounts={setPlayCounts}
+        balance={balance}
+        setBalance={setBalance}
+      />
+
+      {/* 📊 Show play count list sorted by most played */}
+      <PlayCounts playCounts={playCounts} />
     </div>
   );
 };
 
 export default App;
-
-// Create your new Components here
