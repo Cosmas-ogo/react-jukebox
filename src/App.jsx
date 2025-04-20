@@ -1,19 +1,25 @@
 import { useState } from "react";
-import { SongsData, initialPlayCounts, playListTitle } from "./components/Data";
+import {
+  SongsData,
+  copyright,
+  initialPlayCounts,
+  playListTitle,
+} from "./components/Data";
 
 import Heading from "./components/Heading";
 import Balance from "./components/Balance";
 import SongList from "./components/SongList";
 import PlayCounts from "./components/PlayCounts";
+import Footer from "./components/Footer";
 
 const App = () => {
-  // 🎵 Track which song is currently playing
+  // Track which song is currently playing
   const [currentlyPlaying, setCurrentlyPlaying] = useState(0);
 
-  // 💰 Starting balance (user can add £1 each time)
+  // Starting balance (user can add £1 each time)
   const [balance, setBalance] = useState(0);
 
-  // 📈 Track play counts (per song title)
+  // Track play counts (per song title)
   const [playCounts, setPlayCounts] = useState(initialPlayCounts);
 
   return (
@@ -23,7 +29,7 @@ const App = () => {
       {/* 💷 Insert money */}
       <Balance balance={balance} setBalance={setBalance} />
 
-      {/* 🎧 Song list with preview & interactivity */}
+      {/*  Song list with preview & interactivity */}
       <SongList
         songs={SongsData}
         currentlyPlaying={currentlyPlaying}
@@ -34,8 +40,9 @@ const App = () => {
         setBalance={setBalance}
       />
 
-      {/* 📊 Show play count list sorted by most played */}
+      {/* Show play count list sorted by most played */}
       <PlayCounts playCounts={playCounts} />
+      <Footer copyright={copyright} />
     </div>
   );
 };

@@ -38,6 +38,7 @@ const SongsData = [
 ];
 
 const playListTitle = "Our Playlist";
+const copyright = "Copyright: ©Cosmino 2025";
 
 const initialPlayCounts = {
   Dreams: 10,
@@ -47,4 +48,10 @@ const initialPlayCounts = {
 };
 let currentlyPlaying = 0;
 
-export { SongsData, playListTitle, initialPlayCounts, currentlyPlaying };
+export {
+  SongsData,
+  playListTitle,
+  copyright,
+  initialPlayCounts,
+  currentlyPlaying,
+};
